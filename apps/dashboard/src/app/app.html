@@ -1,2 +1,66 @@
-<app-nx-welcome></app-nx-welcome>
-<router-outlet></router-outlet>
+<div class="page">
+  <div class="backdrop">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <header class="brand">
+    <div class="logo">TurboVets</div>
+    <div class="tag">Secure access for admins &amp; team members</div>
+  </header>
+
+  <main class="shell">
+    <section class="pitch">
+      <p class="eyebrow">Welcome back</p>
+      <h1>Sign in to manage appointments, staff, and billing.</h1>
+      <p class="lede">
+        Use your role-based credentials. Admins get full practice controls; team members can manage daily work.
+      </p>
+      <div class="pill">
+        <span class="dot admin"></span>
+        Admin default: <strong>admin / admin123</strong>
+      </div>
+      <div class="pill">
+        <span class="dot user"></span>
+        User default: <strong>user / user123</strong>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <p class="eyebrow">Account</p>
+          <h2>Login</h2>
+        </div>
+        <div class="badge">SQLite + API</div>
+      </div>
+
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()">
+        <label class="field">
+          <span>Username</span>
+          <input type="text" formControlName="username" autocomplete="username" placeholder="admin" />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input type="password" formControlName="password" autocomplete="current-password" placeholder="••••••••" />
+        </label>
+
+        <button class="cta" type="submit" [disabled]="loading">
+          <span *ngIf="!loading">Sign in</span>
+          <span *ngIf="loading">Signing in…</span>
+        </button>
+      </form>
+
+      <div class="status" *ngIf="error">
+        <span class="status-dot error"></span>
+        {{ error }}
+      </div>
+
+      <div class="status success" *ngIf="user">
+        <span class="status-dot ok"></span>
+        Logged in as <strong>{{ user.username }}</strong> ({{ user.role }}). Created {{ user.createdAt | date:'medium' }}.
+      </div>
+    </section>
+  </main>
+</div>
