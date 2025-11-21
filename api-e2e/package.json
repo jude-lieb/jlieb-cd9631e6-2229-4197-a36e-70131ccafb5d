@@ -1,0 +1,26 @@
+{
+  "name": "@jlieb-cd9631e6-2229-4197-a36e-70131ccafb5d/api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@jlieb-cd9631e6-2229-4197-a36e-70131ccafb5d/api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "api-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@jlieb-cd9631e6-2229-4197-a36e-70131ccafb5d/api:build",
+          "@jlieb-cd9631e6-2229-4197-a36e-70131ccafb5d/api:serve"
+        ]
+      }
+    }
+  }
+}
