@@ -1,9 +1,9 @@
 {
   "name": "dashboard",
-  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "dashboard/src",
+  "sourceRoot": "apps/dashboard/src",
   "tags": [],
   "targets": {
     "build": {
@@ -12,20 +12,20 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/dashboard",
-        "browser": "dashboard/src/main.ts",
+        "outputPath": "dist/apps/dashboard",
+        "browser": "apps/dashboard/src/main.ts",
         "polyfills": [
           "zone.js"
         ],
-        "tsConfig": "dashboard/tsconfig.app.json",
+        "tsConfig": "apps/dashboard/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "dashboard/public"
+            "input": "apps/dashboard/public"
           }
         ],
         "styles": [
-          "dashboard/src/styles.css"
+          "apps/dashboard/src/styles.css"
         ]
       },
       "configurations": {
@@ -79,7 +79,7 @@
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "dashboard:build",
-        "staticFilePath": "dist/dashboard/browser",
+        "staticFilePath": "dist/apps/dashboard/browser",
         "spa": true
       }
     }

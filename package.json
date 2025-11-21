@@ -40,7 +40,8 @@
   "workspaces": [
     "packages/*",
     "api",
-    "api-e2e"
+    "api-e2e",
+    "apps/*"
   ],
   "dependencies": {
     "@angular/common": "~20.3.0",
